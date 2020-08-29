@@ -1,0 +1,64 @@
+
+<h1 style="text-align: center;">Add to Item</h1>
+<hr>
+<div class="container">
+<form [formGroup]="additemsform" (ngSubmit)="add()">
+    <div class="form-group">
+      <label for="exampleInputtitle">Title</label>
+      <input type="text" class="form-control" id="exampleInputtitle" placeholder="title" formControlName="title">
+      <span class="red-error" *ngIf="title.invalid && title.touched">
+        Title Name is required </span>
+      </div>
+    <div class="form-group">
+      <label for="exampleInputicon">Icon</label>
+      <input type="text" class="form-control" id="exampleInputicon" placeholder="icon" formControlName="icon">
+      <span class="red-error" *ngIf="icon.invalid && icon.touched">
+        icon is required </span>
+      
+    </div>
+
+    <div class="form-group">
+    <label for="exampleInputDate">Start date:</label>
+    <input type="date" class="form-control" id="exampleInputDate" placeholder="startdate" formControlName="startdate"
+       min="2018-01-01" max="2022-12-31">
+       <span class="red-error" *ngIf="startdate.invalid && startdate.touched">
+        Start date is required </span>
+
+    </div>
+    <div class="form-group">
+      <label for="exampleInputDate">End date:</label>
+      <input type="date" class="form-control" id="exampleInputDate" placeholder="enddate" formControlName="enddate"
+         min="2018-01-01" max="2025-12-31">
+         <span class="red-error" *ngIf="enddate.invalid && enddate.touched">
+          End date is required </span>
+  </div>
+     <button type= "submit"  class="btn btn-primary">Add</button>
+     &nbsp;
+     <button type="button" class="btn btn-primary" (click)="view()">View Data</button>
+  </form>
+  </div>
+  <br>
+  <br>
+  &nbsp;
+  
+
+  <div>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Icon</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+      <tr *ngFor="let item of showData">
+        <td>{{item.title}}</td>
+        <td>{{item.icon}}</td>
+        <td>{{item.startdate}}</td>
+        <td>{{item.enddate}}</td>
+      </tr>
+    </table>
+  </div>
+<br><br>&nbsp;
+  <hr>
+
+  
